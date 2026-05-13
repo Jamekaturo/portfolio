@@ -40,12 +40,26 @@ const portfolioProjects = [
 export default function Home({ introFinished }) {
   const [activeThumb, setActiveThumb] = useState(0);
   const activeProject = portfolioProjects[activeThumb];
+  const [copiedTop, setCopiedTop] = useState(false);
+  const [copiedBottom, setCopiedBottom] = useState(false);
 
   // Initialize intersection observers when DOM is ready
   useReveal();
 
   const handleProjectSelect = (idx) => {
     setActiveThumb(idx);
+  };
+
+  const handleCopyEmail = (e, isTop) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('Jamekaturo@gmail.com');
+    if (isTop) {
+      setCopiedTop(true);
+      setTimeout(() => setCopiedTop(false), 2000);
+    } else {
+      setCopiedBottom(true);
+      setTimeout(() => setCopiedBottom(false), 2000);
+    }
   };
 
   return (
@@ -58,15 +72,39 @@ export default function Home({ introFinished }) {
         <div>
           <div className="hero-title reveal visible"><span>Jame</span></div>
           <div className="hero-title line2 reveal visible"><span>katuro</span></div>
-          <div className="hero-year reveal visible"><span>— 2025</span></div>
+          <div className="hero-year reveal visible"><span>— 2026</span></div>
           <div className="hero-nav-line reveal visible"></div>
 
           <div className="hero-sub reveal visible">
             <div className="hero-sub-nav">
-              <span className="hoverable" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>Jamekaturo</span>
-              <span className="hoverable" onClick={() => window.location.href = '/portfolio'}>Archive</span>
-              <span className="hoverable">Journal</span>
-              <span className="hoverable">Shop</span>
+              <a
+                className="hoverable"
+                style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', position: 'relative' }}
+                onClick={(e) => handleCopyEmail(e, true)}
+              >
+                Jamekaturo@gmail.com
+                <span style={{
+                  position: 'absolute',
+                  bottom: '-20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: '#0a0a0a',
+                  color: '#fff',
+                  fontSize: '0.65rem',
+                  padding: '2px 6px',
+                  borderRadius: '3px',
+                  whiteSpace: 'nowrap',
+                  pointerEvents: 'none',
+                  opacity: copiedTop ? 1 : 0,
+                  transition: 'opacity 0.2s ease',
+                  textTransform: 'none',
+                  letterSpacing: 'normal'
+                }}>
+                  Copy
+                </span>
+              </a>
+              <a href="https://wa.me/393508807803" target="_blank" rel="noopener noreferrer" className="hoverable" style={{ color: 'inherit', textDecoration: 'none' }}>WhatsApp</a>
+              <a href="https://t.me/JamekaturoWork" target="_blank" rel="noopener noreferrer" className="hoverable" style={{ color: 'inherit', textDecoration: 'none' }}>Telegram</a>
             </div>
           </div>
 
@@ -134,17 +172,69 @@ export default function Home({ introFinished }) {
         </div>
       </section>
 
+      {/* ABOUT */}
+      <section id="about" style={{ paddingBottom: '10rem' }}>
+        <div className="section-label reveal">About</div>
+        <div className="about-grid" style={{ alignItems: 'center' }}>
+          <div>
+            <div className="section-title reveal" style={{ marginBottom: '1.5rem' }}>Crafting digital<br />experiences</div>
+            <p className="reveal" style={{ fontSize: '1.05rem', color: '#444', lineHeight: 1.6, maxWidth: '440px' }}>
+              With deep expertise across a wide spectrum of programming languages and modern frameworks, I specialize in building responsive, state-of-the-art web applications and robust digital ecosystems.
+            </p>
+          </div>
+          <div className="about-stats reveal">
+            <div className="stat-item">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="stat-number" data-count="50">0</div>
+                <span style={{ fontSize: '3rem', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>+</span>
+              </div>
+              <div className="stat-label">Projects Completed</div>
+            </div>
+            <div className="stat-item">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="stat-number" data-count="4">0</div>
+                <span style={{ fontSize: '3rem', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>+</span>
+              </div>
+              <div className="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-
-      <section className="contact" id="contact">
+      <section className="contact" id="contact" style={{ paddingTop: '4rem', minHeight: 'auto' }}>
         <div className="section-label reveal">Get In Touch</div>
         <div className="contact-title reveal">
           <a href="#" className="hoverable">Let's<br />work<br />together.</a>
         </div>
         <div className="contact-info reveal">
-          <a href="#" className="hoverable">Instagram</a>
-          <a href="#" className="hoverable">Twitter</a>
-          <a href="#" className="hoverable">hello@jamekaturo.com</a>
+          <a
+            className="hoverable"
+            style={{ cursor: 'pointer', position: 'relative' }}
+            onClick={(e) => handleCopyEmail(e, false)}
+          >
+            Jamekaturo@gmail.com
+            <span style={{
+              position: 'absolute',
+              bottom: '-20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: '#0a0a0a',
+              color: '#fff',
+              fontSize: '0.65rem',
+              padding: '2px 6px',
+              borderRadius: '3px',
+              whiteSpace: 'nowrap',
+              pointerEvents: 'none',
+              opacity: copiedBottom ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+              textTransform: 'none',
+              letterSpacing: 'normal'
+            }}>
+              Copy
+            </span>
+          </a>
+          <a href="https://wa.me/393508807803" target="_blank" rel="noopener noreferrer" className="hoverable">WhatsApp</a>
+          <a href="https://t.me/JamekaturoWork" target="_blank" rel="noopener noreferrer" className="hoverable">Telegram</a>
         </div>
       </section>
     </div>
