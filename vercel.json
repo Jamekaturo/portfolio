@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/portfolio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/project",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/wrench",
+      "destination": "/index.html"
+    }
+  ]
+}

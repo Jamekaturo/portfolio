@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Press+Start+2P&family=Science+Gothic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>spell-notes</title>
+    <script type="module" crossorigin src="./assets/index-hyypJ0CA.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-1gVWdeDB.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function() {
+        var retryTimer = null;
+        var retryCount = 0;
+        function tryPlayAll() {
+          var played = false;
+          document.querySelectorAll('video').forEach(function(v) {
+            if (v.paused && v.readyState >= 2) { v.play().catch(function(){}); played = true; }
+          });
+          document.querySelectorAll('audio').forEach(function(a) {
+            if (a.paused) { a.play().catch(function(){}); }
+          });
+          return played;
+        }
+        document.addEventListener('click', function() {
+          tryPlayAll();
+          if (retryTimer) clearInterval(retryTimer);
+          retryCount = 0;
+          retryTimer = setInterval(function() {
+            retryCount++;
+            if (tryPlayAll() || retryCount >= 25) { clearInterval(retryTimer); retryTimer = null; }
+          }, 200);
+        }, { capture: true });
+      })();
+    </script>
+  </body>
+</html>

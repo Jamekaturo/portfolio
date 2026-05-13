@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Tabletop tools, dice and adventurer notes">
+  <defs>
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" seed="12"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.18"/>
+      </feComponentTransfer>
+      <feBlend mode="multiply" in2="SourceGraphic"/>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#241f19"/>
+      <stop offset="0.55" stop-color="#0d0d0d"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9aa31"/>
+      <stop offset="1" stop-color="#6d4a0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <g filter="url(#paperNoise)">
+    <path d="M155 165c125-26 287-38 516 4 25 5 45 27 42 53-28 243-28 493 2 751 3 24-15 47-39 51-187 34-352 34-520 1-27-5-45-31-39-58 43-198 42-462-2-744-5-30 11-52 40-58z" fill="#c2a46b" opacity=".18"/>
+    <path d="M175 205c145-19 318-20 496 0-22 220-22 481 2 776-180 26-347 24-504-2 36-221 37-484 6-774z" fill="#1a1712" stroke="#6a5220" stroke-width="3"/>
+    <path d="M239 286h300M230 338h380M222 390h312M244 442h260" stroke="#9f8755" stroke-width="6" stroke-linecap="round" opacity=".38"/>
+    <g transform="translate(165 685) rotate(-24)">
+      <rect x="0" y="0" width="380" height="42" rx="11" fill="#1d1b18" stroke="#c0932d" stroke-width="5"/>
+      <path d="M343-44l168 65-168 65c31-35 31-95 0-130z" fill="#b9851d" stroke="#e3bd55" stroke-width="4"/>
+      <circle cx="63" cy="21" r="15" fill="#c0932d"/>
+    </g>
+    <g transform="translate(517 662) rotate(13)">
+      <path d="M50 0h132l62 58-62 58H50L-12 58z" fill="#201c19" stroke="#b69037" stroke-width="5"/>
+      <circle cx="50" cy="58" r="11" fill="#b69037"/>
+      <circle cx="116" cy="31" r="11" fill="#b69037"/>
+      <circle cx="116" cy="86" r="11" fill="#b69037"/>
+      <circle cx="180" cy="58" r="11" fill="#b69037"/>
+    </g>
+    <g transform="translate(250 532) rotate(9)" fill="none" stroke="#7f7a6d" stroke-linecap="round">
+      <path d="M0 0c78 68 155 68 230 0" stroke-width="13"/>
+      <path d="M38 22c48 28 101 29 157 0" stroke-width="8"/>
+      <path d="M20-8l-45-60M205-8l45-60" stroke-width="10"/>
+    </g>
+    <g transform="translate(604 320) rotate(28)">
+      <rect x="-16" y="0" width="32" height="210" rx="14" fill="#191919" stroke="#8f7d52" stroke-width="4"/>
+      <rect x="-34" y="165" width="68" height="92" rx="8" fill="#26221d" stroke="#cda943" stroke-width="4"/>
+      <circle cx="0" cy="211" r="14" fill="#cda943"/>
+    </g>
+  </g>
+  <rect x="38" y="38" width="824" height="1124" fill="none" stroke="#d8a92d" stroke-width="2" opacity=".2"/>
+</svg>

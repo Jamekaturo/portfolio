@@ -71,9 +71,9 @@ export default function Home({ introFinished }) {
           <div className="work-thumbnails">
             {[0, 1, 2, 3].map((idx) => {
               let thumbSrc = null;
-              if (idx === 0) thumbSrc = "/project1.png";
-              if (idx === 1) thumbSrc = "/project2.png";
-              if (idx === 2) thumbSrc = "/bush.png";
+              if (idx === 0) thumbSrc = "/project1/dist/images/1.webp";
+              if (idx === 1) thumbSrc = "/project2/dist2/mondragone.png";
+              if (idx === 2) thumbSrc = "/project3/dist/backgrounds/berserk-bg.png";
               if (idx === 3) thumbSrc = "/project4/dist/image/Main.webp";
               
               return (

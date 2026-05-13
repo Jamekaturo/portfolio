@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>darkness-theory</title>
+    <script type="module" crossorigin src="./assets/index-oaxkjRuQ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C1gaBHPI.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Aggressive iframe autoplay bypass:
+      // When user clicks Enter System, React removes overlay then renders video.
+      // The video element doesn't exist at click time, so we retry until it appears.
+      (function() {
+        var retryTimer = null;
+        var retryCount = 0;
+        
+        function tryPlayAll() {
+          var played = false;
+          document.querySelectorAll('video').forEach(function(v) {
+            if (v.paused && v.readyState >= 2) {
+              v.play().catch(function(){});
+              played = true;
+            }
+          });
+          document.querySelectorAll('audio').forEach(function(a) {
+            if (a.paused) {
+              a.play().catch(function(){});
+            }
+          });
+          return played;
+        }
+        
+        document.addEventListener('click', function() {
+          // Try immediately
+          tryPlayAll();
+          
+          // Clear any previous retry loop
+          if (retryTimer) clearInterval(retryTimer);
+          retryCount = 0;
+          
+          // Keep retrying every 200ms for 5 seconds (25 attempts)
+          // This catches the video element after React finishes re-rendering
+          retryTimer = setInterval(function() {
+            retryCount++;
+            var success = tryPlayAll();
+            if (success || retryCount >= 25) {
+              clearInterval(retryTimer);
+              retryTimer = null;
+            }
+          }, 200);
+        }, { capture: true });
+      })();
+    </script>
+  </body>
+</html>

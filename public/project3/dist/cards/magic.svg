@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="Open spellbook, candle and arcane tabletop notes">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.62" numOctaves="5" seed="31"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.16"/>
+      </feComponentTransfer>
+      <feBlend mode="overlay" in2="SourceGraphic"/>
+    </filter>
+    <radialGradient id="aura" cx="50%" cy="32%" r="66%">
+      <stop offset="0" stop-color="#71528f" stop-opacity=".52"/>
+      <stop offset=".48" stop-color="#211425" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b9a978"/>
+      <stop offset="1" stop-color="#645332"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="#050506"/>
+  <rect width="900" height="1200" fill="url(#aura)"/>
+  <g filter="url(#grain)">
+    <ellipse cx="450" cy="745" rx="352" ry="92" fill="#000" opacity=".48"/>
+    <g transform="translate(140 488)">
+      <path d="M310 26c-104-63-217-67-332-13 22 150 22 271 0 364 101-53 213-47 332 11z" fill="url(#page)" stroke="#d8c48a" stroke-width="4"/>
+      <path d="M310 26c105-63 218-67 333-13-22 150-22 271 0 364-101-53-214-47-333 11z" fill="url(#page)" stroke="#d8c48a" stroke-width="4"/>
+      <path d="M310 28v360" stroke="#3b2f1d" stroke-width="10" opacity=".42"/>
+      <path d="M40 89c72-18 137-12 198 18M35 153c72-18 137-12 198 18M40 219c72-18 137-12 198 18" stroke="#352b1a" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+      <path d="M386 97c67-21 133-18 199 8M383 158c68-15 129-11 184 13M383 225c68-21 133-18 199 8" stroke="#352b1a" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+      <circle cx="454" cy="267" r="46" fill="none" stroke="#654481" stroke-width="7" opacity=".62"/>
+      <path d="M454 219l16 49-41-30h51l-41 30z" fill="none" stroke="#654481" stroke-width="5" opacity=".62"/>
+    </g>
+    <g transform="translate(607 300)">
+      <ellipse cx="54" cy="272" rx="77" ry="24" fill="#000" opacity=".38"/>
+      <rect x="22" y="76" width="66" height="198" rx="14" fill="#d1c59f" stroke="#8d7650" stroke-width="5"/>
+      <path d="M31 111c24 13 45 13 63 0" fill="none" stroke="#8d7650" stroke-width="5" opacity=".65"/>
+      <path d="M55 0c-38 46-31 82 0 106 33-25 37-61 0-106z" fill="#b25d24"/>
+      <path d="M55 31c-15 24-11 42 0 56 12-13 15-32 0-56z" fill="#f7c85c"/>
+      <circle cx="55" cy="112" r="92" fill="#f2a93b" opacity=".1"/>
+    </g>
+    <g transform="translate(183 275) rotate(-15)">
+      <rect x="0" y="0" width="192" height="258" rx="12" fill="#17121b" stroke="#8d6fb5" stroke-width="5"/>
+      <circle cx="96" cy="111" r="42" fill="none" stroke="#8d6fb5" stroke-width="6"/>
+      <path d="M96 48v126M34 111h124M52 67l88 88M140 67l-88 88" stroke="#8d6fb5" stroke-width="4" opacity=".65"/>
+      <path d="M42 210h108" stroke="#bba4da" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+    </g>
+  </g>
+  <rect x="38" y="38" width="824" height="1124" fill="none" stroke="#c7a7ee" stroke-width="2" opacity=".16"/>
+</svg>
