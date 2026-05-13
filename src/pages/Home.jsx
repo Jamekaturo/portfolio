@@ -50,16 +50,24 @@ export default function Home({ introFinished }) {
   useReveal();
 
   useEffect(() => {
+    let timeoutId;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Trigger exactly when the showcase occupies at least 85% of the screen height
+          // Trigger when the section enters the viewport and begins its scroll-snap alignment
           if (entry.isIntersecting) {
-            setIsFullyVisible(true);
+            // Wait 800ms to guarantee the physical scroll/snap motion has completely stopped
+            timeoutId = setTimeout(() => {
+              setIsFullyVisible(true);
+            }, 800);
+          } else {
+            // If scrolled away, cancel the pending animation trigger
+            clearTimeout(timeoutId);
+            setIsFullyVisible(false);
           }
         });
       },
-      { threshold: 0.85 }
+      { threshold: 0.6 }
     );
 
     if (showcaseRef.current) {
@@ -67,6 +75,7 @@ export default function Home({ introFinished }) {
     }
 
     return () => {
+      clearTimeout(timeoutId);
       if (showcaseRef.current) {
         observer.unobserve(showcaseRef.current);
       }
@@ -167,9 +176,9 @@ export default function Home({ introFinished }) {
 
       {/* WORK / SHOWCASE */}
       <section id="work" className="snap-section">
-        <div 
+        <div
           ref={showcaseRef}
-          className={`work-showcase reveal full-screen ${isFullyVisible ? 'fully-visible' : ''}`} 
+          className={`work-showcase full-screen ${isFullyVisible ? 'fully-visible' : ''}`}
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           <div className="work-thumbnails">
@@ -203,7 +212,7 @@ export default function Home({ introFinished }) {
           </div>
 
           {showTutorial && (
-            <div 
+            <div
               className="tutorial-overlay-wrapper"
               onClick={() => setShowTutorial(false)}
             >

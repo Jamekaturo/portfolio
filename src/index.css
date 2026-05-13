@@ -79,17 +79,7 @@ body {
   text-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
-/* === BUSH TRANSITION === */
-.transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 3000;
-  overflow: hidden;
-}
+
 
 .transition-overlay.active {
   pointer-events: all;
@@ -121,11 +111,7 @@ body {
   transition: opacity 0.15s ease-in, transform 0.25s cubic-bezier(0.6, -0.28, 0.74, 0.05);
 }
 
-/* === MAIN PORTFOLIO CONTENT === */
-#main-portfolio {
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
+
 
 #main-portfolio.visible {
   opacity: 1;
@@ -768,8 +754,15 @@ footer {
 }
 
 @keyframes shrinkHole {
-  0% { width: 300vmax; height: 300vmax; }
-  100% { width: 90px; height: 90px; }
+  0% {
+    width: 300vmax;
+    height: 300vmax;
+  }
+
+  100% {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .tutorial-overlay-wrapper {
@@ -791,12 +784,14 @@ footer {
 
 .tutorial-hole {
   position: absolute;
-  top: 82px; /* Center of the first thumbnail */
+  top: 82px;
+  /* Center of the first thumbnail */
   left: 50px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  box-shadow: 0 0 0 9999px rgba(0,0,0,0.85);
-  width: 300vmax; /* Start huge */
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.85);
+  width: 300vmax;
+  /* Start huge */
   height: 300vmax;
 }
 
@@ -810,13 +805,14 @@ footer {
   left: calc(100% + 30px);
   transform: translateY(-50%);
   color: white;
-  font-size: 2.5rem; /* Made much larger */
+  font-size: 2.5rem;
+  /* Made much larger */
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: 0;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .work-showcase.fully-visible .tutorial-text {
@@ -867,10 +863,17 @@ footer {
     left: 46px;
     animation: shrinkHoleMobile 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
-  
+
   @keyframes shrinkHoleMobile {
-    0% { width: 300vmax; height: 300vmax; }
-    100% { width: 75px; height: 75px; }
+    0% {
+      width: 300vmax;
+      height: 300vmax;
+    }
+
+    100% {
+      width: 75px;
+      height: 75px;
+    }
   }
 
   .about-grid {
