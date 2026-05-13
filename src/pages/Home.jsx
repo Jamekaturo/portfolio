@@ -66,11 +66,8 @@ export default function Home({ introFinished }) {
       </div>
 
       {/* WORK / SHOWCASE */}
-      <section id="work">
-        <div className="section-label reveal">Selected Work</div>
-        <div className="section-title reveal">Featured Projects</div>
-        
-        <div className="work-showcase reveal">
+      <section id="work" className="snap-section">
+        <div className="work-showcase reveal full-screen">
           <div className="work-thumbnails">
             {[0, 1, 2, 3].map((idx) => (
               <div 

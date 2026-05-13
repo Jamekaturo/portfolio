@@ -7,14 +7,6 @@ export default function Layout({ children }) {
       <CustomCursor />
       
       <div id="content">
-        <header>
-          <div className="logo"><Link to="/">Jamekaturo</Link></div>
-          <nav>
-            <Link to="/portfolio" className="hoverable">Archive</Link>
-            <a href="#about" className="hoverable">Journal</a>
-            <a href="#contact" className="hoverable">Contact</a>
-          </nav>
-        </header>
 
         <main>{children}</main>
 
