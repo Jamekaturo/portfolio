@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Консультация - Персональный стилист Ксения</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#413A36',       
+                        card: '#4E433E',     
+                        accent: '#E6C6B1',   
+                        textSecondary: '#C6BDB7', 
+                        border: '#605751'    
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 60px rgba(230, 198, 177, 0.15)',
+                        'card-glow': '0 0 20px rgba(230, 198, 177, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #413A36; 
+            color: #FFFFFF; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+        }
+        .font-display { font-family: 'Oswald', sans-serif; }
+        
+        .line-pattern {
+            background-image: linear-gradient(to right, #605751 1px, transparent 1px);
+            background-size: 40px 100%;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased relative min-h-screen flex flex-col">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 pointer-events-none line-pattern opacity-[0.05] z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="relative z-20 w-full py-6 px-6 max-w-7xl mx-auto flex justify-between items-center shrink-0">
+        <a href="index.html" class="flex items-center gap-2 text-textSecondary hover:text-accent transition-colors text-sm font-medium uppercase tracking-wider">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            На главную
+        </a>
+        <a href="index.html" class="text-2xl font-display font-bold text-accent tracking-widest uppercase">Ksenia</a>
+    </nav>
+
+    <!-- Consultation Content -->
+    <main class="relative z-10 flex-grow flex items-center justify-center px-6 py-20">
+        <div class="w-full max-w-3xl bg-card border border-border p-8 md:p-16 rounded-sm shadow-2xl drop-shadow-md relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 bg-accent text-[#38312C] px-6 py-2 rounded-bl-sm font-display font-bold text-xl uppercase tracking-widest">
+                150€
+            </div>
+
+            <div class="text-center mb-10 mt-6">
+                <h1 class="text-4xl md:text-5xl font-display font-medium text-[#EAD0C0] mb-6">Персональная консультация стилиста</h1>
+                <p class="text-lg text-textSecondary font-light leading-relaxed max-w-xl mx-auto">
+                    На консультации мы разберем ваш гардероб и создадим четкий план формирования вашего стиля.
+                </p>
+            </div>
+
+            <div class="bg-[#38312C] border border-[#4E433E] rounded-sm p-8 mb-10 shadow-inner">
+                <p class="text-white text-sm font-bold mb-6 uppercase tracking-wider">Что вы получите:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-accent/20 flex items-center justify-center bg-card">
+                            <i data-lucide="search" class="text-accent w-5 h-5"></i>
+                        </div>
+                        <span class="text-[#EAD0C0] font-medium text-lg">Анализ</span>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-accent/20 flex items-center justify-center bg-card">
+                            <i data-lucide="list-checks" class="text-accent w-5 h-5"></i>
+                        </div>
+                        <span class="text-[#EAD0C0] font-medium text-lg">Рекомендации</span>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-12 h-12 rounded-full border border-accent/20 flex items-center justify-center bg-card">
+                            <i data-lucide="map" class="text-accent w-5 h-5"></i>
+                        </div>
+                        <span class="text-[#EAD0C0] font-medium text-lg">Стратегию</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-filled Form for Consultation Booking -->
+            <form id="consultation-form" class="space-y-6 block">
+                <div class="group">
+                    <input type="text" required class="w-full bg-[#38312C] border border-[#4E433E] p-5 rounded-sm focus:border-accent outline-none transition-colors text-white font-medium focus:shadow-card-glow placeholder-[#887F79]" placeholder="Ваше Имя" />
+                </div>
+                
+                <div class="group">
+                    <input type="text" required class="w-full bg-[#38312C] border border-[#4E433E] p-5 rounded-sm focus:border-accent outline-none transition-colors text-white font-medium focus:shadow-card-glow placeholder-[#887F79]" placeholder="Telegram / WhatsApp или Ваш email" />
+                </div>
+
+                <button type="submit" class="w-full bg-accent text-[#38312C] py-6 flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform duration-300 font-display font-bold text-xl uppercase tracking-wider rounded-sm shadow-glow mt-8">
+                    Записаться
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </button>
+            </form>
+
+            <div id="success-message" class="hidden text-center py-12">
+                <i data-lucide="check-circle" class="w-16 h-16 mx-auto mb-6 text-accent"></i>
+                <h3 class="text-3xl font-display font-medium text-white mb-2">Заявка отправлена</h3>
+                <p class="text-textSecondary">Спасибо! Я свяжусь с вами в ближайшее время для уточнения деталей.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-6 text-center text-sm text-textSecondary shrink-0 border-t border-[#4E433E]">
+        &copy; 2026 Ksenia Styling. Все права защищены.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Form handler logic
+        const form = document.getElementById('consultation-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            alert('Это демонстрационная версия для портфолио. Отправка заявок отключена.');
+            form.style.display = 'none';
+            if (successMessage) successMessage.classList.remove('hidden');
+        });
+
+        // Intercept non-anchor link clicks for portfolio showcase
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link) {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    return;
+                }
+                e.preventDefault();
+                alert('Это демонстрационная версия для портфолио. Переход по ссылкам отключен.');
+            }
+        });
+
+        // Basic query param checking
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        if (service) {
+            // Adjust title or pre-fill info if needed based on query parameter
+            const titleElem = document.querySelector('h1');
+            const priceElem = document.querySelector('.absolute.top-0.right-0');
+            
+            if (service === 'analysis') {
+                titleElem.innerText = 'Анализ гардероба';
+                priceElem.innerText = '300€';
+            } else if (service === 'capsule') {
+                titleElem.innerText = 'Создание капсульного гардероба';
+                priceElem.innerText = '400–500€';
+            } else if (service === 'online_shopping') {
+                titleElem.innerText = 'Онлайн шопинг сопровождение';
+                priceElem.innerText = '300€';
+            } else if (service === 'offline_shopping') {
+                titleElem.innerText = 'Оффлайн шопинг сопровождение';
+                priceElem.innerText = '600€';
+            } else if (service === 'vip') {
+                titleElem.innerText = 'Полная трансформация гардероба (VIP)';
+                priceElem.innerText = '1200–2500€';
+            }
+        }
+    </script>
+</body>
+</html>

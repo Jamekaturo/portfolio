@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональный стилист Ксения</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#3A322E',       
+                        card: '#443A34',     
+                        accent: '#EAD0C0',   
+                        textSecondary: '#C6BDB7', 
+                        border: '#605751'    
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 60px rgba(230, 198, 177, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #3A322E; 
+            color: #FFFFFF; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+        }
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        html { scroll-behavior: smooth; }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #3A322E; }
+        ::-webkit-scrollbar-thumb { background: #605751; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #EAD0C0; }
+
+        .line-pattern {
+            background-image: linear-gradient(to right, #605751 1px, transparent 1px);
+            background-size: 40px 100%;
+        }
+
+        .holo-container {
+            transform-style: preserve-3d;
+        }
+        .holo-layer {
+            backface-visibility: hidden;
+        }
+        .holo-glare {
+            background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.4) 25%, rgba(230, 198, 177, 0.6) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 80%);
+            mix-blend-mode: overlay;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased relative overflow-x-hidden w-full max-w-full">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#3A322E] transition-opacity duration-1000">
+        <div class="text-4xl md:text-6xl font-display font-light text-[#EAD0C0] tracking-[0.2em] uppercase animate-pulse">
+            Ksenia
+        </div>
+    </div>
+
+
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 pointer-events-none line-pattern opacity-[0.05] z-0"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav id="header" class="fixed top-0 left-0 right-0 z-50 w-full py-6 px-6 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-accent tracking-widest uppercase relative z-10">Ksenia</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-textSecondary uppercase relative z-10">
+                <a href="#about" class="hover:text-accent transition">Обо мне</a>
+                <a href="#services" class="hover:text-accent transition">Услуги</a>
+                <a href="#transformation" class="hover:text-accent transition">Трансформация</a>
+                <a href="#results" class="hover:text-accent transition">Результаты</a>
+                <a href="#contacts" class="hover:text-accent transition">Контакты</a>
+            </div>
+            <a href="#booking" class="hidden md:inline-flex px-6 py-2 bg-accent text-[#38312C] text-xs font-bold uppercase tracking-wider rounded-sm hover:scale-105 transition-all relative z-10">Записаться</a>
+        </div>
+    </nav>
+
+    <!-- Block 1 — Hero -->
+    <header class="relative z-10 pt-32 md:pt-48 pb-32 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <h1 class="text-6xl md:text-8xl lg:text-[110px] font-display font-light leading-[1.05] mb-8 text-[#EAD0C0] tracking-tight" data-aos="fade-up" data-aos-duration="1200">
+            Создайте гардероб, <br>
+            <span class="italic text-accent">который работает на вас</span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl text-textSecondary max-w-3xl font-light mb-14 leading-relaxed font-serif" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
+            Я помогаю женщинам обрести стильную, понятную и функциональную систему без хаоса и лишних покупок
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto mt-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
+            <a href="#booking" class="group relative w-full sm:w-auto inline-flex items-center justify-center px-12 py-5 bg-accent text-[#38312C] font-sans font-medium text-sm md:text-base uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">
+                Записаться <i data-lucide="arrow-right" class="w-4 h-4 ml-3"></i>
+            </a>
+            
+            <a href="#services" class="group relative w-full sm:w-auto inline-flex items-center justify-center px-12 py-5 border border-[#605751] text-[#EAD0C0] font-sans font-medium text-sm md:text-base uppercase tracking-[0.2em] hover:bg-white/5 hover:border-accent transition-all duration-300">
+                Услуги <i data-lucide="chevron-down" class="w-4 h-4 ml-3 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Block 2 — About Ksenia -->
+    <section id="about" class="relative z-10 py-20 px-6 bg-[#322A26] overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+            
+            <div class="w-full md:w-5/12" data-aos="fade-right" data-aos-duration="1000">
+                <div class="aspect-[3/4] bg-card rounded-t-full overflow-hidden shadow-2xl relative group border-t border-white/10">
+                    <img src="images/e9e26e94-5a23-4643-9fea-1c31d96f569a.jpg" alt="Персональный стилист Ксения" class="w-full h-full object-cover sm:grayscale hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105">
+                </div>
+            </div>
+
+            <div class="w-full md:w-7/12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <span class="text-sm font-semibold tracking-[0.3em] uppercase text-textSecondary mb-4 block">Обо мне</span>
+                <h2 class="text-5xl lg:text-7xl font-display font-light text-[#EAD0C0] mb-8 leading-none tracking-tight">Искусство быть собой</h2>
+                
+                <div class="space-y-6 text-textSecondary leading-relaxed text-lg md:text-2xl font-light">
+                    <p>
+                        Меня зовут Ксения, я персональный стилист, и моя миссия — превратить ваше ежедневное одевание из рутины в эстетическое наслаждение.
+                    </p>
+                    <p class="text-white font-display text-3xl md:text-4xl border-l-[3px] border-accent pl-8 py-2 italic leading-snug">
+                        «Каждая женщина заслуживает гардероб, который будет не просто храниться в шкафу, а жить и работать на нее каждый день.»
+                    </p>
+                    <p>
+                        Я создаю структуру, где каждая деталь гармонирует, подчеркивает вашу красоту и придает уверенность. Я работаю онлайн и офлайн с клиентами из любой точки мира.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="relative z-40 w-[110vw] left-1/2 -translate-x-1/2 -rotate-2 bg-accent py-5 md:py-6 shadow-2xl overflow-hidden my-12 pointer-events-none border-y border-[#38312C]/10">
+        <div class="whitespace-nowrap flex text-[#38312C] font-display text-xl md:text-2xl uppercase tracking-[0.3em] font-medium opacity-80">
+            <div class="animate-marquee inline-block">
+                <span>ЭЛЕГАНТНОСТЬ ✦ </span><span>УВЕРЕННОСТЬ ✦ </span><span>БАЗОВЫЙ ГАРДЕРОБ ✦ </span><span>ФУНКЦИОНАЛЬНОСТЬ ✦ </span><span>ПРОЯВЛЕННОСТЬ ✦ </span><span>ИДЕАЛЬНАЯ КАПСУЛА ✦ </span>
+            </div>
+            <div class="animate-marquee inline-block" aria-hidden="true">
+                <span>ЭЛЕГАНТНОСТЬ ✦ </span><span>УВЕРЕННОСТЬ ✦ </span><span>БАЗОВЫЙ ГАРДЕРОБ ✦ </span><span>ФУНКЦИОНАЛЬНОСТЬ ✦ </span><span>ПРОЯВЛЕННОСТЬ ✦ </span><span>ИДЕАЛЬНАЯ КАПСУЛА ✦ </span>
+            </div>
+            <div class="animate-marquee inline-block" aria-hidden="true">
+                <span>ЭЛЕГАНТНОСТЬ ✦ </span><span>УВЕРЕННОСТЬ ✦ </span><span>БАЗОВЫЙ ГАРДЕРОБ ✦ </span><span>ФУНКЦИОНАЛЬНОСТЬ ✦ </span><span>ПРОЯВЛЕННОСТЬ ✦ </span><span>ИДЕАЛЬНАЯ КАПСУЛА ✦ </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Block 3 — Services -->
+    <!-- Services Section (Infinite 3D Carousel) -->
+<section id="services" class="relative z-10 pt-20 pb-4 bg-gradient-to-b from-[#3C3531] via-[#332D29] to-[#332D29] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <div data-aos="fade-right" class="w-full text-left">
+            <span class="text-sm font-semibold tracking-[0.3em] uppercase text-textSecondary mb-4 block">Прайс-лист 2026</span>
+            <h2 class="text-5xl md:text-7xl font-display font-light text-[#EAD0C0]">Услуги</h2>
+        </div>
+        <!-- Arrow buttons have been moved into the carousel container -->
+    </div>
+
+    <!-- 3D Overlapping Infinite Carousel -->
+    <div class="carousel-3d-container max-w-7xl mx-auto px-0 md:px-6 relative">
+        
+        <!-- Navigation Buttons -->
+        <button id="prevBtn" class="absolute left-0 md:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-14 md:h-14 rounded-full border border-border flex items-center justify-center text-textSecondary hover:border-accent hover:text-accent transition-all group bg-[#3A322E] shadow-lg">
+            <i data-lucide="chevron-left" class="w-4 h-4 md:w-6 md:h-6 md:group-active:-translate-x-1 transition-transform"></i>
+        </button>
+        <button id="nextBtn" class="absolute right-0 md:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-14 md:h-14 rounded-full border border-border flex items-center justify-center text-textSecondary hover:border-accent hover:text-accent transition-all group bg-[#3A322E] shadow-lg">
+            <i data-lucide="chevron-right" class="w-4 h-4 md:w-6 md:h-6 md:group-active:translate-x-1 transition-transform"></i>
+        </button>
+        
+        <!-- 1. Online Style Consultation -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-[#2A231F] border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-accent/5 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-50 group-hover/card:opacity-100"></div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-4">Consultation</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-6">Online <br><span class="italic text-accent">Style Advice</span></h3>
+                
+                <div class="text-3xl font-display text-white mb-8 border-b border-white/10 pb-6 flex items-baseline gap-2">
+                    $149 <span class="text-xl text-textSecondary italic font-serif opacity-70"> – $345</span>
+                </div>
+                
+                <div class="space-y-6 flex-grow">
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Разбор
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Выявляем ошибки и "слепые зоны" стиля.</div>
+                    </div>
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Вектор
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Как выглядеть дорого, актуально и собранно.</div>
+                    </div>
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Формулы
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Готовые комбинации, силуэты и сочетания цветов.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-white/10 text-center">
+                    <p class="text-[13px] font-serif italic text-textSecondary opacity-90 mb-6">“Продаю не созвон, а ясность.”</p>
+                    <a href="#booking" onclick="selectService('online_consult'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-transparent border border-accent/40 text-accent font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-accent hover:text-[#38312C] transition-all">Записаться</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Online Shopping -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-[#2A231F] border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-accent/5 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-50 group-hover/card:opacity-100"></div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-4">Packages 2026</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-8">Online <br><span class="italic text-accent">Shopping</span></h3>
+                
+                <div class="space-y-6 flex-grow">
+                    <!-- Basic -->
+                    <div class="relative pl-5 border-l border-white/10 hover:border-accent transition-colors">
+                        <div class="flex justify-between items-end mb-1">
+                            <div class="text-white font-medium text-[11px] tracking-[0.2em] uppercase">Basic Edit</div>
+                            <div class="text-accent italic font-serif text-sm">$450+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/60">10-15 позиций. Понимаешь, что купить, без лишних трат.</div>
+                    </div>
+                    
+                    <!-- Standard -->
+                    <div class="relative pl-5 border-l-2 border-accent bg-accent/5 -ml-[1px] py-4 rounded-r-lg shadow-inner">
+                        <div class="flex justify-between items-end mb-2">
+                            <div class="text-accent font-medium text-[11px] tracking-[0.2em] uppercase flex items-center gap-2">
+                                Standard <span class="bg-accent text-[#38312C] px-1.5 py-0.5 text-[8px] rounded-sm font-bold">ХИТ</span>
+                            </div>
+                            <div class="text-accent italic font-serif text-base">$700+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/90">15-25 вещей, 10-15 готовых образов, ссылки, сопровождение.</div>
+                    </div>
+
+                    <!-- Premium -->
+                    <div class="relative pl-5 border-l border-white/10 hover:border-accent transition-colors">
+                        <div class="flex justify-between items-end mb-1">
+                            <div class="text-white font-medium text-[11px] tracking-[0.2em] uppercase">Premium</div>
+                            <div class="text-accent italic font-serif text-sm">$1,000+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/60">Капсула 35 поз., 25 образов (Lookbook), 3 дня чата.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 border-t border-white/10 pt-6">
+                    <a href="#booking" onclick="selectService('online_shop'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-transparent border border-accent/40 text-accent font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-accent hover:text-[#38312C] transition-all">Выбрать пакет</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Offline Shopping -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-[#2A231F] border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-accent/5 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-50 group-hover/card:opacity-100"></div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-4">Personal Experience</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-8">Offline <br><span class="italic text-accent">Shopping</span></h3>
+                
+                <div class="space-y-6 flex-grow">
+                    <!-- Basic -->
+                    <div class="relative pl-5 border-l border-white/10 hover:border-accent transition-colors">
+                        <div class="flex justify-between items-end mb-1">
+                            <div class="text-white font-medium text-[11px] tracking-[0.2em] uppercase">Session</div>
+                            <div class="text-accent italic font-serif text-sm">$600+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/60">3-4 часа шопинга. Находишь нужное быстрее, экономишь бюджет.</div>
+                    </div>
+                    
+                    <!-- Standard -->
+                    <div class="relative pl-5 border-l-2 border-accent bg-accent/5 -ml-[1px] py-4 rounded-r-lg shadow-inner">
+                        <div class="flex justify-between items-end mb-2">
+                            <div class="text-accent font-medium text-[11px] tracking-[0.2em] uppercase flex items-center gap-2">
+                                Curated <span class="bg-accent text-[#38312C] px-1.5 py-0.5 text-[8px] rounded-sm font-bold">ХИТ</span>
+                            </div>
+                            <div class="text-accent italic font-serif text-base">$900+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/90">Отбор вещей заранее, 4-5ч шопинга, готовые сочетания на месте.</div>
+                    </div>
+
+                    <!-- Premium -->
+                    <div class="relative pl-5 border-l border-white/10 hover:border-accent transition-colors">
+                        <div class="flex justify-between items-end mb-1">
+                            <div class="text-white font-medium text-[11px] tracking-[0.2em] uppercase">Full Exp.</div>
+                            <div class="text-accent italic font-serif text-sm">$1,300+</div>
+                        </div>
+                        <div class="text-[13px] font-light leading-relaxed text-white/60">Гардероб "под ключ": 5-6 часов, капсула, образы, поддержка.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 border-t border-white/10 pt-6">
+                    <a href="#booking" onclick="selectService('offline_shop'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-transparent border border-accent/40 text-accent font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-accent hover:text-[#38312C] transition-all">Выбрать пакет</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Capsule Wardrobe -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-[#2A231F] border-2 border-accent/30 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_30px_60px_-15px_rgba(234,208,192,0.15)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute top-0 right-0 bg-accent text-[#38312C] text-[9px] font-bold uppercase tracking-[0.3em] px-5 py-2 rounded-bl-lg">Must Have</div>
+                <div class="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent pointer-events-none"></div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-4 relative z-10">Styling + Lookbook</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-6 relative z-10">Capsule <br><span class="italic text-accent">Wardrobe</span></h3>
+                
+                <div class="text-3xl font-display text-white mb-8 border-b border-accent/20 pb-6 flex items-baseline gap-2 relative z-10">
+                    $850 <span class="text-xl text-accent italic font-serif opacity-90"> – $1,400</span>
+                </div>
+                
+                <div class="space-y-6 flex-grow relative z-10">
+                    <div class="flex gap-4">
+                        <span class="text-accent font-serif italic text-2xl leading-none pt-1 opacity-60">01</span>
+                        <div>
+                            <div class="text-white font-medium text-[13px] mb-1">База & Акценты</div>
+                            <div class="text-[13px] font-light text-white/70 leading-relaxed">Идеальный баланс гардероба под вашу жизнь и задачи.</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-accent font-serif italic text-2xl leading-none pt-1 opacity-60">02</span>
+                        <div>
+                            <div class="text-white font-medium text-[13px] mb-1">Shopping List</div>
+                            <div class="text-[13px] font-light text-white/70 leading-relaxed">Конкретные ссылки для покупки (оптимизация бюджета).</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-accent font-serif italic text-2xl leading-none pt-1 opacity-60">03</span>
+                        <div>
+                            <div class="text-white font-medium text-[13px] mb-1">Capsule Lookbook</div>
+                            <div class="text-[13px] font-light text-white/70 leading-relaxed">10–20 визуально собранных образов. Открыл и надел.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 relative z-10">
+                    <a href="#booking" onclick="selectService('capsule'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-accent text-[#38312C] font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-white transition-colors shadow-glow">Заказать капсулу</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. NY Edit -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-[#2A231F] border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-accent/5 blur-[50px] pointer-events-none transition-opacity duration-500 opacity-50 group-hover/card:opacity-100"></div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-accent/80 mb-4">Offline / 2026</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-6">Wardrobe <br><span class="italic text-accent">Edit</span></h3>
+                
+                <div class="text-3xl font-display text-white mb-8 border-b border-white/10 pb-6 flex items-baseline gap-2">
+                    $1,500 <span class="text-xl text-textSecondary italic font-serif opacity-70"> – $1,800</span>
+                </div>
+                
+                <div class="space-y-6 flex-grow">
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Офлайн Разбор
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Чистка и адаптация под статус и образ жизни.</div>
+                    </div>
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Gap Analysis
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Список покупок, чтобы гардероб выглядел дороже.</div>
+                    </div>
+                    <div class="group/item">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-accent mb-2 flex items-center gap-3">
+                            <span class="w-6 h-[1px] bg-accent/40 transition-all group-hover/item:w-10 group-hover/item:bg-accent"></span> Direction
+                        </div>
+                        <div class="text-sm font-light text-white/80 leading-relaxed pl-9">Собираем 12–20 новых образов из текущих вещей.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-white/10 text-center">
+                    <a href="#booking" onclick="selectService('ny_edit'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-transparent border border-accent/40 text-accent font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-accent hover:text-[#38312C] transition-all">Забронировать</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. VIP -->
+        <div class="carousel-3d-item">
+            <div class="carousel-3d-item-content bg-gradient-to-br from-[#231E1B] to-[#120F0D] border border-accent/20 rounded-2xl p-6 md:p-10 flex flex-col shadow-[0_40px_80px_-20px_rgba(234,208,192,0.15)] relative overflow-y-auto overflow-x-hidden group/card">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+                <div class="absolute top-0 right-8 bg-gradient-to-r from-accent to-[#D4B59E] text-[#38312C] text-[9px] font-bold uppercase tracking-[0.3em] px-5 py-2 rounded-b-lg shadow-lg">Premium</div>
+                
+                <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#EAD0C0]/60 mb-4 relative z-10">Transformation</div>
+                <h3 class="text-3xl md:text-4xl font-display font-light text-white leading-none mb-6 relative z-10">VIP <br><span class="italic text-accent">Package</span></h3>
+                
+                <div class="text-3xl font-display text-white mb-8 border-b border-accent/20 pb-6 flex items-baseline gap-2 relative z-10">
+                    $3,500 <span class="text-xl text-accent italic font-serif opacity-80"> – $5,500</span>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-y-4 text-[13px] text-white/80 font-light flex-grow relative z-10">
+                    <div class="flex items-center gap-3 pb-2 border-b border-white/5"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-glow"></div> Style Consultation & Разбор</div>
+                    <div class="flex items-center gap-3 pb-2 border-b border-white/5"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-glow"></div> Создание премиум-капсулы</div>
+                    <div class="flex items-center gap-3 pb-2 border-b border-white/5"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-glow"></div> Curated Shopping (3-5 часов)</div>
+                    <div class="flex items-center gap-3 pb-2 border-b border-white/5"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-glow"></div> Lookbook (35+ образов)</div>
+                    <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-accent shadow-glow"></div> VIP Поддержка (4 недели)</div>
+                </div>
+                
+                <div class="mt-8 pt-5 text-center relative z-10">
+                    <span class="text-[11px] uppercase tracking-widest text-accent/60 block mb-4">Гардероб под ключ</span>
+                    <a href="#booking" onclick="selectService('vip_trans'); event.stopPropagation();" class="w-full inline-flex justify-center items-center py-4 bg-transparent border border-accent text-accent font-sans font-medium text-[10px] uppercase tracking-[0.2em] rounded-sm hover:bg-accent hover:text-[#38312C] transition-all">Стать VIP</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <!-- Block 5 — How It Works -->
+    <section class="relative z-10 py-20 px-6 bg-[#2B2623] overflow-hidden">
+        <!-- Background Image with Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/45a7026a-fdb2-4455-a015-0c910a1c3510.png" alt="Background Element" class="w-full h-full object-cover object-top opacity-20 scale-[1.02]">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#38312C]/95 via-[#38312C]/70 to-[#38312C]/95"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#3C3531] via-transparent to-transparent"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h2 class="text-5xl md:text-7xl font-display text-[#EAD0C0] mb-20 tracking-tight font-light text-center" data-aos="fade-up">Как это работает</h2>
+
+            <!-- Steps Grid (Top: 3 cols) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-16 mb-16">
+                <!-- Step 01 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-[#EAD0C0] opacity-60 text-xl md:text-2xl mb-4 font-display italic tracking-widest">01</div>
+                    <div class="w-full h-[1px] bg-[#EAD0C0] opacity-20 mb-6 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <h3 class="text-3xl md:text-4xl text-white font-display mb-4 leading-tight tracking-wide">Запись на консультацию</h3>
+                    <p class="text-textSecondary text-base md:text-lg font-light leading-relaxed">Выберите подходящую вам услугу и забронируйте удобное время.</p>
+                </div>
+                <!-- Step 02 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#EAD0C0] opacity-60 text-xl md:text-2xl mb-4 font-display italic tracking-widest">02</div>
+                    <div class="w-full h-[1px] bg-[#EAD0C0] opacity-20 mb-6 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <h3 class="text-3xl md:text-4xl text-white font-display mb-4 leading-tight tracking-wide">Анкета стиля</h3>
+                    <p class="text-textSecondary text-base md:text-lg font-light leading-relaxed">Поделитесь деталями о вашем образе жизни, целях и предпочтениях.</p>
+                </div>
+                <!-- Step 03 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#EAD0C0] opacity-60 text-xl md:text-2xl mb-4 font-display italic tracking-widest">03</div>
+                    <div class="w-full h-[1px] bg-[#EAD0C0] opacity-20 mb-6 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <h3 class="text-3xl md:text-4xl text-white font-display mb-4 leading-tight tracking-wide">Персональный анализ</h3>
+                    <p class="text-textSecondary text-base md:text-lg font-light leading-relaxed">Я глубоко анализирую ваши потребности и разрабатываю индивидуальную стратегию.</p>
+                </div>
+            </div>
+
+            <!-- Steps Grid (Bottom: 2 cols) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 mb-24 lg:w-[68%]">
+                <!-- Step 04 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-[#EAD0C0] opacity-60 text-xl md:text-2xl mb-4 font-display italic tracking-widest">04</div>
+                    <div class="w-full h-[1px] bg-[#EAD0C0] opacity-20 mb-6 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <h3 class="text-3xl md:text-4xl text-white font-display mb-4 leading-tight tracking-wide">Создание капсулы</h3>
+                    <p class="text-textSecondary text-base md:text-lg font-light leading-relaxed">Ваша новая, функциональная и продуманная система гардероба обретает форму.</p>
+                </div>
+                <!-- Step 05 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#EAD0C0] opacity-60 text-xl md:text-2xl mb-4 font-display italic tracking-widest">05</div>
+                    <div class="w-full h-[1px] bg-[#EAD0C0] opacity-20 mb-6 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    <h3 class="text-3xl md:text-4xl text-white font-display mb-4 leading-tight tracking-wide">Финальная презентация</h3>
+                    <p class="text-textSecondary text-base md:text-lg font-light leading-relaxed">Получите подробный план гардероба с дальнейшими рекомендациями и поддержкой.</p>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full h-[1px] bg-[#605751] mb-20 opacity-30"></div>
+
+            <!-- Why It Works -->
+            <div class="max-w-4xl mx-auto text-center md:text-left">
+                <h2 class="text-5xl md:text-7xl font-display text-[#EAD0C0] mb-12 tracking-tight font-light" data-aos="fade-up">Почему это работает</h2>
+                <ul class="space-y-6 text-left" data-aos="fade-up" data-aos-delay="200">
+                    <li class="flex items-center gap-6 text-white font-light text-lg md:text-2xl">
+                        <div class="w-[4px] h-[4px] rounded-full bg-accent opacity-50 shrink-0"></div>
+                        Меньше стресса и экономия времени по утрам
+                    </li>
+                    <li class="flex items-center gap-6 text-white font-light text-lg md:text-2xl">
+                        <div class="w-[4px] h-[4px] rounded-full bg-accent opacity-50 shrink-0"></div>
+                        Отсутствие импульсивных и неработающих покупок
+                    </li>
+                    <li class="flex items-center gap-6 text-white font-light text-lg md:text-2xl">
+                        <div class="w-[4px] h-[4px] rounded-full bg-accent opacity-50 shrink-0"></div>
+                        Абсолютная уверенность в своем стильном образе
+                    </li>
+                    <li class="flex items-center gap-6 text-white font-light text-lg md:text-2xl">
+                        <div class="w-[4px] h-[4px] rounded-full bg-accent opacity-50 shrink-0"></div>
+                        Гардероб, который полностью отвечает вашему образу жизни
+                    </li>
+                    <li class="flex items-center gap-6 text-white font-light text-lg md:text-2xl">
+                        <div class="w-[4px] h-[4px] rounded-full bg-accent opacity-50 shrink-0"></div>
+                        Легкая и понятная элегантность каждый день
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 5 — Transformation -->
+    <section id="transformation" class="relative z-10 py-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            
+            <div class="w-full lg:w-1/2 z-20 relative" data-aos="fade-right">
+                <h2 class="text-5xl md:text-7xl font-display text-[#EAD0C0] font-light tracking-tight mb-8">Магия <br>трансформации</h2>
+                <h3 class="text-3xl md:text-4xl font-display text-white mb-8 font-light leading-tight">Новая глава вашего стиля начинается здесь</h3>
+                <p class="text-textSecondary text-lg md:text-xl font-light mb-12 leading-relaxed opacity-80">
+                    Вам больше не придется часами стоять перед открытым шкафом с мыслью «мне нечего надеть». Я помогаю полностью переосмыслить подход к покупкам, очистить гардероб от лишнего и составить идеальную функциональную базу.
+                </p>
+                <p class="text-sm uppercase tracking-[0.2em] font-bold text-[#EAD0C0] mb-8 opacity-80">Что изменится после работы:</p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-5 p-6 rounded-sm border border-white/5 bg-[#38312C]/40 backdrop-blur-sm relative group overflow-hidden">
+                        <i data-lucide="sparkles" class="text-accent/60 group-hover:text-accent w-6 h-6 transition-colors shrink-0"></i>
+                        <span class="text-white text-lg md:text-xl font-light tracking-wide">Уверенность в своем стиле</span>
+                    </li>
+                    <li class="flex items-center gap-5 p-6 rounded-sm border border-white/5 bg-[#38312C]/40 backdrop-blur-sm relative group overflow-hidden">
+                        <i data-lucide="grid" class="text-accent/60 group-hover:text-accent w-6 h-6 transition-colors shrink-0"></i>
+                        <span class="text-white text-lg md:text-xl font-light tracking-wide">Понятная система гардероба</span>
+                    </li>
+                    <li class="flex items-center gap-5 p-6 rounded-sm border border-white/5 bg-[#38312C]/40 backdrop-blur-sm relative group overflow-hidden">
+                        <i data-lucide="clock" class="text-accent/60 group-hover:text-accent w-6 h-6 transition-colors shrink-0"></i>
+                        <span class="text-white text-lg md:text-xl font-light tracking-wide">Экономия времени и денег</span>
+                    </li>
+                    <li class="flex items-center gap-5 p-6 rounded-sm border border-white/5 bg-[#38312C]/40 backdrop-blur-sm relative group overflow-hidden">
+                        <i data-lucide="sun" class="text-accent/60 group-hover:text-accent w-6 h-6 transition-colors shrink-0"></i>
+                        <span class="text-white text-lg md:text-xl font-light tracking-wide">Готовые образы на каждый день</span>
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Photos Area (Holographic Card) -->
+                <div class="w-full lg:w-7/12 flex justify-center items-center perspective-[1500px]" data-aos="fade-left" data-aos-delay="200">
+                    <div id="holoCard" class="relative w-full max-w-[500px] aspect-[3/4] rounded-sm shadow-2xl holo-container overflow-hidden transform-gpu transition-shadow duration-300 group">
+                        
+                        <!-- Floating badges logic is disabled in HTML visually -->
+                        <div class="hidden" id="badgeBefore"></div>
+                        <div class="hidden" id="badgeAfter"></div>
+
+                        <!-- Before Image (par1) -->
+                        <img src="images/par1.png" alt="Transformation 1" class="absolute inset-0 w-full h-full object-cover holo-layer z-10" id="holoImg1">
+                        
+                        <!-- After Image (par2) -->
+                        <img src="images/par2.png" alt="Transformation 2" class="absolute inset-0 w-full h-full object-cover holo-layer z-20 opacity-0" id="holoImg2">
+                        
+                        <!-- Glare overlay -->
+                        <div class="absolute -inset-[150%] z-30 opacity-0 pointer-events-none holo-glare transition-opacity duration-300 transform-gpu" id="holoGlare"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 6 — Client Results (Photo + Quote) -->
+    <section id="results" class="relative z-10 py-20 px-6 bg-[#322A26] overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center" data-aos="fade-up">
+                <h2 class="text-5xl md:text-7xl font-display font-light text-[#EAD0C0] mb-6 tracking-tight">Результаты клиентов</h2>
+                <p class="text-textSecondary text-lg md:text-xl max-w-3xl font-light mx-auto">Реальные трансформации женщин, которые обрели ясность благодаря персональному стилю.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Result 1 -->
+                <div class="flex flex-col gap-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-full aspect-square overflow-hidden rounded-sm shadow-xl">
+                        <img src="images/results/IMG_9511.jpg" alt="Client 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative bg-transparent border border-[#605751] p-8 md:p-10 flex-grow rounded-sm mt-2">
+                        <!-- Custom Quote Decoration -->
+                        <div class="absolute -top-6 -left-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-end">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative top-2">&ldquo;</span>
+                        </div>
+                        <div class="absolute -bottom-6 -right-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-start">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative -top-3">&rdquo;</span>
+                        </div>
+                        
+                        <p class="text-[#EAD0C0] text-base md:text-lg font-light leading-relaxed mb-6 italic block relative z-10">
+                            "Работа с Ксенией полностью изменила мой подход к выбору одежды. Мое утро теперь без стресса, и я чувствую себя уверенно каждый день."
+                        </p>
+                        <p class="text-textSecondary text-sm md:text-base font-light block relative z-10">— Сара М.</p>
+                    </div>
+                </div>
+
+                <!-- Result 2 -->
+                <div class="flex flex-col gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full aspect-square overflow-hidden rounded-sm shadow-xl relative top-0 md:top-8">
+                        <img src="images/results/IMG_9512.jpg" alt="Client 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative bg-transparent border border-[#605751] p-8 md:p-10 flex-grow rounded-sm mt-2 md:mt-10">
+                        <div class="absolute -top-6 -left-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-end">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative top-2">&ldquo;</span>
+                        </div>
+                        <div class="absolute -bottom-6 -right-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-start">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative -top-3">&rdquo;</span>
+                        </div>
+                        
+                        <p class="text-[#EAD0C0] text-base md:text-lg font-light leading-relaxed mb-6 italic block relative z-10">
+                            "Наконец-то у меня есть гардероб, который отражает мою суть. Каждая вещь идеально сочетается с другими. Это очень упростило мою жизнь."
+                        </p>
+                        <p class="text-textSecondary text-sm md:text-base font-light block relative z-10">— Дженнифер К.</p>
+                    </div>
+                </div>
+
+                <!-- Result 3 -->
+                <div class="flex flex-col gap-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-full aspect-square overflow-hidden rounded-sm shadow-xl">
+                        <img src="images/results/IMG_9518.jpg" alt="Client 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="relative bg-transparent border border-[#605751] p-8 md:p-10 flex-grow rounded-sm mt-2">
+                        <div class="absolute -top-6 -left-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-end">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative top-2">&ldquo;</span>
+                        </div>
+                        <div class="absolute -bottom-6 -right-2 bg-[#413A36] px-2 h-10 overflow-hidden flex items-start">
+                            <span class="text-[#EAD0C0] text-6xl font-serif opacity-80 tracking-tighter relative -top-3">&rdquo;</span>
+                        </div>
+                        
+                        <p class="text-[#EAD0C0] text-base md:text-lg font-light leading-relaxed mb-6 italic block relative z-10">
+                            "Услуга капсульного гардероба стоила каждого потраченного цента. Я трачу меньше на одежду, но выгляжу лучше, чем когда-либо. Это действительно меняет жизнь."
+                        </p>
+                        <p class="text-textSecondary text-sm md:text-base font-light block relative z-10">— Аманда Р.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 7 — Booking Form -->
+    <section id="booking" class="relative z-40 scroll-mt-24 py-20 px-6">
+        <div class="max-w-2xl mx-auto relative z-10 w-full">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-xs font-semibold tracking-[0.3em] uppercase text-textSecondary mb-6 block">Оставить заявку</span>
+                <h2 class="text-5xl md:text-7xl font-display font-light text-[#EAD0C0] mb-6 tracking-tight">Начните трансформацию</h2>
+                <p class="text-textSecondary font-light text-lg md:text-xl">Оставьте свои данные, и я свяжусь с вами для уточнения всех деталей.</p>
+            </div>
+
+            <!-- Success Message (Hidden initially) -->
+            <div id="success-message" class="hidden bg-card/80 backdrop-blur-sm p-16 text-center border border-white/5 rounded-sm shadow-2xl">
+                <i data-lucide="check" class="w-12 h-12 mx-auto mb-6 text-accent"></i>
+                <h3 class="text-3xl font-display font-light text-white mb-4">Заявка успешно отправлена</h3>
+                <p class="text-textSecondary font-light">Спасибо! Я свяжусь с вами в ближайшее время.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="contact-form" class="space-y-6 block bg-card/50 backdrop-blur-sm p-10 md:p-14 rounded-sm border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="group">
+                    <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Имя</label>
+                    <input type="text" required class="w-full bg-[#322A26] border border-white/5 p-4 rounded-sm focus:border-accent outline-none transition-colors text-white font-light focus:shadow-glow placeholder-[#756A63] text-sm md:text-base" placeholder="Ваше Имя" />
+                </div>
+                
+                <div class="group">
+                    <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Телефон</label>
+                    <div class="flex items-center w-full bg-[#322A26] border border-white/5 rounded-sm focus-within:border-accent focus-within:shadow-glow transition-colors">
+                        <span class="pl-4 pr-1 text-[#756A63] font-light select-none">+</span>
+                        <input type="tel" required class="w-full bg-transparent py-4 pr-4 border-none outline-none text-white font-light placeholder-[#756A63] text-sm md:text-base" placeholder="1234567890" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="group">
+                        <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Telegram</label>
+                        <div class="flex items-center w-full bg-[#322A26] border border-white/5 rounded-sm focus-within:border-accent focus-within:shadow-glow transition-colors">
+                            <span class="pl-4 pr-1 text-[#756A63] font-light select-none">@</span>
+                            <input type="text" class="w-full bg-transparent py-4 pr-4 border-none outline-none text-white font-light placeholder-[#756A63] text-sm md:text-base" placeholder="username" />
+                        </div>
+                    </div>
+                    
+                    <div class="group">
+                        <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Instagram</label>
+                        <div class="flex items-center w-full bg-[#322A26] border border-white/5 rounded-sm focus-within:border-accent focus-within:shadow-glow transition-colors">
+                            <span class="pl-4 pr-1 text-[#756A63] font-light select-none">@</span>
+                            <input type="text" class="w-full bg-transparent py-4 pr-4 border-none outline-none text-white font-light placeholder-[#756A63] text-sm md:text-base" placeholder="username" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative pt-2">
+                    <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Услуга</label>
+                    <!-- Hidden input to hold the actual value -->
+                    <input type="hidden" id="service-input" name="service" value="online_consult">
+                    
+                    <!-- Custom Select Trigger -->
+                    <div id="service-trigger" tabindex="0" class="w-full bg-[#322A26] border border-white/5 p-4 rounded-sm focus:border-accent outline-none transition-all text-white cursor-pointer focus:shadow-glow font-light text-sm md:text-base relative flex items-center justify-between hover:border-accent/50">
+                        <span id="service-selected-text">Online Style Advice — $149+</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 opacity-60 transition-transform duration-300" id="service-arrow"></i>
+                    </div>
+
+                    <!-- Custom Select Options -->
+                    <div id="service-dropdown" class="absolute left-0 right-0 top-full mt-2 bg-[#322A26] border border-accent/20 rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-50 overflow-hidden hidden opacity-0 transition-opacity duration-300">
+                        <ul class="max-h-[300px] overflow-y-auto w-full py-2">
+                            <li data-value="online_consult" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light transition-all cursor-pointer border-l-[3px] bg-[#443A34] border-accent text-accent">Online Style Advice — $149+</li>
+                            <li data-value="online_shop" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent">Online Shopping (Выбор тарифа)</li>
+                            <li data-value="offline_shop" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent">Offline Shopping (Выбор тарифа)</li>
+                            <li data-value="capsule" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent">Capsule Wardrobe — $850+</li>
+                            <li data-value="ny_edit" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent">New York Edit — $1,500+</li>
+                            <li data-value="vip_trans" class="custom-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent">VIP Package — $3,500+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dependent Plan Dropdown -->
+                <div class="group relative pt-4 hidden" id="plan-container">
+                    <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-textSecondary mb-3 pl-1 opacity-80">Пакет / Тариф</label>
+                    <input type="hidden" id="plan-input" name="plan" value="">
+                    
+                    <div id="plan-trigger" tabindex="0" class="w-full bg-[#322A26] border border-white/5 p-4 rounded-sm focus:border-accent outline-none transition-all text-white cursor-pointer focus:shadow-glow font-light text-sm md:text-base relative flex items-center justify-between hover:border-accent/50">
+                        <span id="plan-selected-text">Выберите тариф...</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 opacity-60 transition-transform duration-300" id="plan-arrow"></i>
+                    </div>
+
+                    <div id="plan-dropdown" class="absolute left-0 right-0 top-full mt-2 bg-[#322A26] border border-accent/20 rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-50 overflow-hidden hidden opacity-0 transition-opacity duration-300">
+                        <ul class="max-h-[300px] overflow-y-auto w-full py-2" id="plan-list">
+                            <!-- Options injected by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-transparent border border-accent hover:bg-accent text-accent hover:text-[#38312C] py-5 flex items-center justify-center gap-3 transition-all duration-500 font-sans font-medium text-xs uppercase tracking-[0.2em] rounded-sm mt-8">
+                    Оставить заявку
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Block 8 — Contacts (Footer) -->
+    <footer id="contacts" class="bg-[#2B2521] pt-12 pb-6 px-6 mt-6 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+            
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-display font-light text-[#EAD0C0] tracking-widest uppercase mb-2">Ksenia</div>
+                <p class="text-textSecondary text-xs max-w-xs font-light">Ваш персональный гид в мир функционального и стильного гардероба.</p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-4">
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#322A26] border border-white/5 flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-all duration-300">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#322A26] border border-white/5 flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-all duration-300">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#322A26] border border-white/5 flex items-center justify-center text-textSecondary hover:text-accent hover:border-accent transition-all duration-300">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                <a href="#booking" class="inline-flex px-6 py-2.5 border border-[#605751] text-[#EAD0C0] font-sans font-medium text-[9px] uppercase tracking-[0.2em] rounded-sm hover:bg-white/5 hover:border-accent transition-all">
+                    Связаться со мной
+                </a>
+            </div>
+            
+        </div>
+        <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/5 text-center text-[10px] text-textSecondary/50 font-light uppercase tracking-widest">
+            &copy; 2026 Ksenia Styling. Все права защищены.
+        </div>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 900,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic',
+        });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 1000);
+                }, 800);
+            }
+        });
+
+        // Sticky Header effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-[#3A322E]/80', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.remove('bg-[#3A322E]/80', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                    header.classList.add('py-6');
+                }
+            }
+        });
+
+
+
+        // Holographic Scroll Effect Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.getElementById('holoCard');
+            const img2 = document.getElementById('holoImg2');
+            const glare = document.getElementById('holoGlare');
+            const badgeBefore = document.getElementById('badgeBefore');
+            const badgeAfter = document.getElementById('badgeAfter');
+
+            // Form handler
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+
+            if(form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    alert('Это демонстрационная версия для портфолио. Отправка заявок отключена.');
+                    form.style.display = 'none';
+                    if (successMessage) successMessage.classList.remove('hidden');
+                });
+            }
+
+            if (!card) return;
+
+            // Handle scroll events
+            window.addEventListener('scroll', () => {
+                const rect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calculate progress through the viewport (0 to 1)
+                // 0 = just entered the screen from bottom, 1 = leaving from top
+                let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // We want the magic to happen earlier so it finishes before leaving the screen
+                // Map progress so that 0.15->0.55 becomes 0->1
+                let transitionProgress = (progress - 0.3) * 5; 
+                transitionProgress = Math.max(0, Math.min(1, transitionProgress));
+
+                // Tilt calculation (creates the 3D rotation effect)
+                const tiltY = (0.5 - progress) * 40; // Max 20deg left/right
+                const tiltX = (progress - 0.5) * 20; // Max 10deg up/down
+                
+                // Apply 3D transform and scale for depth
+                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(${1 + Math.sin(transitionProgress * Math.PI) * 0.05})`;
+                
+                // Crossfade
+                if (img2) img2.style.opacity = transitionProgress;
+                
+                // Badges transition
+                if (badgeBefore) badgeBefore.style.opacity = 1 - transitionProgress;
+                if (badgeAfter) badgeAfter.style.opacity = transitionProgress;
+
+                // Move and fade glare
+                if (glare) {
+                    // Start glare from left to right diagonally
+                    const sweepX = (transitionProgress * 200) - 100;
+                    const sweepY = (transitionProgress * 150) - 50;
+                    
+                    glare.style.transform = `translateX(${sweepX}%) translateY(${sweepY}%) rotate(-45deg)`;
+                    
+                    // Sine curve for opacity (highest in the middle of transition)
+                    const glareOpacity = Math.sin(transitionProgress * Math.PI) * 0.9;
+                    glare.style.opacity = glareOpacity;
+                    
+                    // Add extra dynamic box-shadow glow based on intensity
+                    card.style.boxShadow = `
+                        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                        0 0 ${glareOpacity * 50}px rgba(230, 198, 177, ${glareOpacity * 0.4})
+                    `;
+                }
+            });
+            
+            // Trigger once on load to set initial state
+            window.dispatchEvent(new Event('scroll'));
+        });
+
+        // -------------------------
+        // Custom Dropdown Logic
+        // -------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('service-trigger');
+            const dropdown = document.getElementById('service-dropdown');
+            const arrow = document.getElementById('service-arrow');
+            const selectedText = document.getElementById('service-selected-text');
+            const hiddenInput = document.getElementById('service-input');
+            const options = document.querySelectorAll('.custom-option');
+
+            const planContainer = document.getElementById('plan-container');
+            const planTrigger = document.getElementById('plan-trigger');
+            const planDropdown = document.getElementById('plan-dropdown');
+            const planArrow = document.getElementById('plan-arrow');
+            const planSelectedText = document.getElementById('plan-selected-text');
+            const planHiddenInput = document.getElementById('plan-input');
+            const planList = document.getElementById('plan-list');
+
+            const planData = {
+                'online_shop': [
+                    { value: 'basic', text: 'Basic Edit — $450+' },
+                    { value: 'standard', text: 'Standard (ХИТ) — $700+' },
+                    { value: 'premium', text: 'Premium — $1,000+' }
+                ],
+                'offline_shop': [
+                    { value: 'session', text: 'Session — $600+' },
+                    { value: 'curated', text: 'Curated (ХИТ) — $900+' },
+                    { value: 'full', text: 'Full Exp. — $1,300+' }
+                ]
+            };
+
+            function updatePlans(serviceValue) {
+                if (planData[serviceValue]) {
+                    planList.innerHTML = '';
+                    planData[serviceValue].forEach((plan, idx) => {
+                        const li = document.createElement('li');
+                        li.dataset.value = plan.value;
+                        li.className = 'plan-option px-5 py-3 md:py-4 text-sm md:text-base font-light text-white transition-all cursor-pointer border-l-[3px] border-transparent hover:border-accent hover:bg-[#443A34] hover:text-accent';
+                        li.innerText = plan.text;
+                        
+                        // Select first by default
+                        if (idx === 0) {
+                            li.classList.remove('border-transparent', 'text-white');
+                            li.classList.add('bg-[#443A34]', 'border-accent', 'text-accent');
+                            planSelectedText.innerText = plan.text;
+                            planHiddenInput.value = plan.value;
+                        }
+
+                        // Attach event
+                        li.addEventListener('click', () => {
+                            planSelectedText.innerText = li.innerText;
+                            planHiddenInput.value = li.dataset.value;
+                            
+                            document.querySelectorAll('.plan-option').forEach(opt => {
+                                opt.classList.remove('bg-[#443A34]', 'border-accent', 'text-accent');
+                                opt.classList.add('border-transparent', 'text-white');
+                            });
+                            li.classList.remove('border-transparent', 'text-white');
+                            li.classList.add('bg-[#443A34]', 'border-accent', 'text-accent');
+                            closeDropdown(planDropdown, planArrow, planTrigger);
+                        });
+
+                        planList.appendChild(li);
+                    });
+                    planContainer.classList.remove('hidden');
+                } else {
+                    planContainer.classList.add('hidden');
+                    planHiddenInput.value = '';
+                    planSelectedText.innerText = 'Выберите тариф...';
+                }
+            }
+
+            if(trigger && dropdown) {
+                // Open/Close dropdown
+                trigger.addEventListener('click', () => {
+                    const isHidden = dropdown.classList.contains('hidden');
+                    if (isHidden) {
+                        dropdown.classList.remove('hidden');
+                        setTimeout(() => dropdown.classList.remove('opacity-0'), 10);
+                        arrow.classList.add('rotate-180');
+                        trigger.classList.add('border-accent');
+                    } else {
+                        closeDropdown(dropdown, arrow, trigger);
+                    }
+                });
+
+                // Select option
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        // Set value and text
+                        selectedText.innerText = option.innerText;
+                        hiddenInput.value = option.getAttribute('data-value');
+                        
+                        // Reset all options to default state
+                        options.forEach(opt => {
+                            opt.classList.remove('bg-[#443A34]', 'border-accent', 'text-accent');
+                            opt.classList.add('border-transparent', 'text-white');
+                        });
+                        
+                        // Set active state on clicked option
+                        option.classList.remove('border-transparent', 'text-white');
+                        option.classList.add('bg-[#443A34]', 'border-accent', 'text-accent');
+
+                        closeDropdown(dropdown, arrow, trigger);
+                        updatePlans(hiddenInput.value); // Trigger dynamic plans
+                    });
+                });
+
+                // Open/Close Profile Dropdown
+                if(planTrigger) {
+                    planTrigger.addEventListener('click', () => {
+                        const isHidden = planDropdown.classList.contains('hidden');
+                        if (isHidden) {
+                            planDropdown.classList.remove('hidden');
+                            setTimeout(() => planDropdown.classList.remove('opacity-0'), 10);
+                            planArrow.classList.add('rotate-180');
+                            planTrigger.classList.add('border-accent');
+                        } else {
+                            closeDropdown(planDropdown, planArrow, planTrigger);
+                        }
+                    });
+                }
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (trigger && dropdown && !trigger.contains(e.target) && !dropdown.contains(e.target)) {
+                        closeDropdown(dropdown, arrow, trigger);
+                    }
+                    if (planTrigger && planDropdown && !planTrigger.contains(e.target) && !planDropdown.contains(e.target)) {
+                        closeDropdown(planDropdown, planArrow, planTrigger);
+                    }
+                });
+
+                function closeDropdown(dd, arr, trig) {
+                    if(!dd || !arr || !trig) return;
+                    dd.classList.add('opacity-0');
+                    arr.classList.remove('rotate-180');
+                    trig.classList.remove('border-accent');
+                    setTimeout(() => dd.classList.add('hidden'), 200); 
+                }
+            }
+        });
+
+        // Function to trigger dropdown option selection externally
+        function selectService(serviceValue) {
+            const optionToSelect = document.querySelector(`.custom-option[data-value="${serviceValue}"]`);
+            if(optionToSelect) {
+                // Programmatically trigger the click logic
+                optionToSelect.click();
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

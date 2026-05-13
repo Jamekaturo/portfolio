@@ -25,6 +25,16 @@ const portfolioProjects = [
     src: '/project4/dist/index.html',
     title: 'New Beauty School',
   },
+  {
+    thumb: '/project5/dist/images/e9e26e94-5a23-4643-9fea-1c31d96f569a.jpg',
+    src: '/project5/dist/index.html',
+    title: 'Ksenia Styling',
+  },
+  {
+    thumb: '/project6/dist/beauty-school.png',
+    src: '/project6/dist/index.html',
+    title: 'Yulia Stasiv Beauty School',
+  },
 ];
 
 export default function Home({ introFinished }) {
@@ -50,21 +60,21 @@ export default function Home({ introFinished }) {
           <div className="hero-title line2 reveal visible"><span>katuro</span></div>
           <div className="hero-year reveal visible"><span>— 2025</span></div>
           <div className="hero-nav-line reveal visible"></div>
-          
+
           <div className="hero-sub reveal visible">
             <div className="hero-sub-nav">
               <span className="hoverable" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>Jamekaturo</span>
-              <span className="hoverable" onClick={() => window.location.href='/portfolio'}>Archive</span>
+              <span className="hoverable" onClick={() => window.location.href = '/portfolio'}>Archive</span>
               <span className="hoverable">Journal</span>
               <span className="hoverable">Shop</span>
             </div>
           </div>
-          
+
           <p className="hero-description reveal visible">
             Sometimes, to design also means to transform ideas not only into visuals, but into words; a type of design that does not serve the ideals of capitalist marketing, but the analogue society. To design means to reinvent oneself and, thus, the world.
           </p>
         </div>
-        
+
         <div className="scroll-indicator reveal visible">
           <div className="scroll-line"></div>
           Scroll to explore
@@ -95,7 +105,7 @@ export default function Home({ introFinished }) {
           <div className="work-thumbnails">
             {portfolioProjects.map((project, idx) => {
               return (
-                <div 
+                <div
                   key={idx}
                   tabIndex={0}
                   className={`work-thumb hoverable ${activeThumb === idx ? 'active' : ''}`}
@@ -124,35 +134,7 @@ export default function Home({ introFinished }) {
         </div>
       </section>
 
-      {/* PHILOSOPHY / ABOUT etc */}
-      <div className="philosophy reveal">
-        <div className="section-label">Philosophy</div>
-        <p className="philosophy-text">In a world where everything has a new, updated version, to design also means to discover the <em>essential values of humanity</em> and translate them into matters that can last. To design means to reinvent oneself and, thus, the world around us.</p>
-      </div>
 
-      <section id="about">
-        <div className="section-label reveal">About</div>
-        <div className="section-title reveal">Crafting digital<br />experiences</div>
-        <div className="about-grid">
-          <div className="about-text reveal">
-            Jamekaturo is a multidisciplinary designer and creative director focused on building meaningful digital experiences. With a philosophy rooted in minimalism and intentionality, every project is an exploration of form, function, and human connection.
-          </div>
-          <div className="about-stats reveal">
-            <div className="stat-item">
-              <div className="stat-number" data-count="47">0</div>
-              <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number" data-count="12">0</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number" data-count="8">0</div>
-              <div className="stat-label">Awards Won</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="contact" id="contact">
         <div className="section-label reveal">Get In Touch</div>
