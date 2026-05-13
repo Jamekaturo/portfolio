@@ -4,13 +4,37 @@ import VantaFog from '../components/VantaFog';
 import ThreeCanvas from '../components/ThreeCanvas';
 import { useReveal } from '../hooks/useReveal';
 
+const portfolioProjects = [
+  {
+    thumb: '/project1/dist/images/1.webp',
+    src: '/project1/dist/index.html',
+    title: 'Darkness Theory',
+  },
+  {
+    thumb: '/project2/dist2/mondragone.png',
+    src: '/project2/dist2/index.html',
+    title: 'Mondragone Apartments',
+  },
+  {
+    thumb: '/project3/dist/backgrounds/berserk-bg.png',
+    src: '/project3/dist/index.html',
+    title: 'Spell Notes',
+  },
+  {
+    thumb: '/project4/dist/image/Main.webp',
+    src: '/project4/dist/index.html',
+    title: 'New Beauty School',
+  },
+];
+
 export default function Home({ introFinished }) {
   const [activeThumb, setActiveThumb] = useState(0);
+  const activeProject = portfolioProjects[activeThumb];
 
   // Initialize intersection observers when DOM is ready
   useReveal();
 
-  const handleThumbEnter = (idx) => {
+  const handleProjectSelect = (idx) => {
     setActiveThumb(idx);
   };
 
@@ -69,44 +93,32 @@ export default function Home({ introFinished }) {
       <section id="work" className="snap-section">
         <div className="work-showcase reveal full-screen">
           <div className="work-thumbnails">
-            {[0, 1, 2, 3].map((idx) => {
-              let thumbSrc = null;
-              if (idx === 0) thumbSrc = "/project1/dist/images/1.webp";
-              if (idx === 1) thumbSrc = "/project2/dist2/mondragone.png";
-              if (idx === 2) thumbSrc = "/project3/dist/backgrounds/berserk-bg.png";
-              if (idx === 3) thumbSrc = "/project4/dist/image/Main.webp";
-              
+            {portfolioProjects.map((project, idx) => {
               return (
                 <div 
                   key={idx}
+                  tabIndex={0}
                   className={`work-thumb hoverable ${activeThumb === idx ? 'active' : ''}`}
-                  onMouseEnter={() => handleThumbEnter(idx)}
+                  onMouseEnter={() => handleProjectSelect(idx)}
+                  onClick={() => handleProjectSelect(idx)}
+                  onFocus={() => handleProjectSelect(idx)}
                 >
-                  {thumbSrc ? <img src={thumbSrc} alt={`Project ${idx}`} /> : <div className="empty-thumb"></div>}
+                  <img src={project.thumb} alt={`Project ${idx}`} />
                 </div>
               );
             })}
           </div>
 
           <div className="work-preview-container">
-            {/* PROJECT 0 */}
-            <div className={`preview-item ${activeThumb === 0 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
-               <iframe src="/project1/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Darkness Theory"></iframe>
-            </div>
-
-            {/* PROJECT 1 */}
-            <div className={`preview-item ${activeThumb === 1 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
-               <iframe src="/project2/dist2/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Mondragone Apartments"></iframe>
-            </div>
-
-            {/* PROJECT 2 */}
-            <div className={`preview-item ${activeThumb === 2 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
-               <iframe src="/project3/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Spell Notes"></iframe>
-            </div>
-
-            {/* PROJECT 3 */}
-            <div className={`preview-item ${activeThumb === 3 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
-               <iframe src="/project4/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="New Beauty School"></iframe>
+            <div className="preview-item active" style={{ padding: 0, alignItems: 'stretch' }}>
+              <iframe
+                key={activeProject.src}
+                src={activeProject.src}
+                allow="autoplay; fullscreen"
+                loading="eager"
+                style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }}
+                title={activeProject.title}
+              ></iframe>
             </div>
           </div>
         </div>
