@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import VantaFog from '../components/VantaFog';
 import ThreeCanvas from '../components/ThreeCanvas';
@@ -38,16 +38,44 @@ const portfolioProjects = [
 ];
 
 export default function Home({ introFinished }) {
-  const [activeThumb, setActiveThumb] = useState(0);
+  const [activeThumb, setActiveThumb] = useState(1);
   const activeProject = portfolioProjects[activeThumb];
   const [copiedTop, setCopiedTop] = useState(false);
   const [copiedBottom, setCopiedBottom] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(true);
+  const [isFullyVisible, setIsFullyVisible] = useState(false);
+  const showcaseRef = useRef(null);
 
   // Initialize intersection observers when DOM is ready
   useReveal();
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Trigger exactly when the showcase occupies at least 85% of the screen height
+          if (entry.isIntersecting) {
+            setIsFullyVisible(true);
+          }
+        });
+      },
+      { threshold: 0.85 }
+    );
+
+    if (showcaseRef.current) {
+      observer.observe(showcaseRef.current);
+    }
+
+    return () => {
+      if (showcaseRef.current) {
+        observer.unobserve(showcaseRef.current);
+      }
+    };
+  }, []);
+
   const handleProjectSelect = (idx) => {
     setActiveThumb(idx);
+    setShowTutorial(false);
   };
 
   const handleCopyEmail = (e, isTop) => {
@@ -139,7 +167,11 @@ export default function Home({ introFinished }) {
 
       {/* WORK / SHOWCASE */}
       <section id="work" className="snap-section">
-        <div className="work-showcase reveal full-screen">
+        <div 
+          ref={showcaseRef}
+          className={`work-showcase reveal full-screen ${isFullyVisible ? 'fully-visible' : ''}`} 
+          style={{ position: 'relative', overflow: 'hidden' }}
+        >
           <div className="work-thumbnails">
             {portfolioProjects.map((project, idx) => {
               return (
@@ -169,6 +201,19 @@ export default function Home({ introFinished }) {
               ></iframe>
             </div>
           </div>
+
+          {showTutorial && (
+            <div 
+              className="tutorial-overlay-wrapper"
+              onClick={() => setShowTutorial(false)}
+            >
+              <div className="tutorial-hole">
+                <div className="tutorial-text">
+                  Click
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
