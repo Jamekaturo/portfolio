@@ -69,51 +69,44 @@ export default function Home({ introFinished }) {
       <section id="work" className="snap-section">
         <div className="work-showcase reveal full-screen">
           <div className="work-thumbnails">
-            {[0, 1, 2, 3].map((idx) => (
-              <div 
-                key={idx}
-                className={`work-thumb hoverable ${activeThumb === idx ? 'active' : ''}`}
-                onMouseEnter={() => handleThumbEnter(idx)}
-              >
-                {idx === 0 ? <img src="/mustang.png" alt="WRENCH Auto" /> : <div className="empty-thumb"></div>}
-              </div>
-            ))}
+            {[0, 1, 2, 3].map((idx) => {
+              let thumbSrc = null;
+              if (idx === 0) thumbSrc = "/project1.png";
+              if (idx === 1) thumbSrc = "/project2.png";
+              if (idx === 2) thumbSrc = "/bush.png";
+              if (idx === 3) thumbSrc = "/project4/dist/image/Main.webp";
+              
+              return (
+                <div 
+                  key={idx}
+                  className={`work-thumb hoverable ${activeThumb === idx ? 'active' : ''}`}
+                  onMouseEnter={() => handleThumbEnter(idx)}
+                >
+                  {thumbSrc ? <img src={thumbSrc} alt={`Project ${idx}`} /> : <div className="empty-thumb"></div>}
+                </div>
+              );
+            })}
           </div>
 
           <div className="work-preview-container">
             {/* PROJECT 0 */}
             <div className={`preview-item ${activeThumb === 0 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
-               <iframe src="/wrench.html" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c', borderRadius: '24px', pointerEvents: 'auto' }} title="WRENCH Auto"></iframe>
+               <iframe src="/project1/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Darkness Theory"></iframe>
             </div>
 
             {/* PROJECT 1 */}
-            <div className={`preview-item ${activeThumb === 1 ? 'active' : ''}`}>
-              <div className="preview-placeholder" style={{ background: 'linear-gradient(135deg, #16213e, #0f3460)' }}></div>
-              <div className="preview-overlay">
-                 <div className="preview-meta">02 // Concept</div>
-                 <div className="preview-title">Meridian Studio</div>
-                 <div className="preview-cat">Brand Identity / Web Design</div>
-              </div>
+            <div className={`preview-item ${activeThumb === 1 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
+               <iframe src="/project2/dist2/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Mondragone Apartments"></iframe>
             </div>
 
             {/* PROJECT 2 */}
-            <div className={`preview-item ${activeThumb === 2 ? 'active' : ''}`}>
-              <div className="preview-placeholder" style={{ background: 'linear-gradient(135deg, #2d132c, #801336)' }}></div>
-              <div className="preview-overlay">
-                 <div className="preview-meta">03 // Concept</div>
-                 <div className="preview-title">Noctis Gallery</div>
-                 <div className="preview-cat">Art Direction / Digital</div>
-              </div>
+            <div className={`preview-item ${activeThumb === 2 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
+               <iframe src="/project3/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="Spell Notes"></iframe>
             </div>
 
             {/* PROJECT 3 */}
-            <div className={`preview-item ${activeThumb === 3 ? 'active' : ''}`}>
-              <div className="preview-placeholder" style={{ background: 'linear-gradient(135deg, #1b1b1b, #3d3d3d)' }}></div>
-              <div className="preview-overlay">
-                 <div className="preview-meta">04 // Concept</div>
-                 <div className="preview-title">Forma Architecture</div>
-                 <div className="preview-cat">Visual Identity / Motion</div>
-              </div>
+            <div className={`preview-item ${activeThumb === 3 ? 'active' : ''}`} style={{ padding: 0, alignItems: 'stretch' }}>
+               <iframe src="/project4/dist/index.html" allow="autoplay; fullscreen" style={{ width: '100%', height: '100%', border: 'none', background: '#08080c' }} title="New Beauty School"></iframe>
             </div>
           </div>
         </div>
