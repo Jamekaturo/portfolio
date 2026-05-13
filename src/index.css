@@ -220,12 +220,13 @@ nav a:hover::after {
 
 /* HERO */
 .hero {
-  height: 100vh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 3rem;
   position: relative;
+  scroll-snap-align: start;
 }
 
 .hero-title {
@@ -383,7 +384,7 @@ section {
 }
 
 .work-showcase.full-screen {
-  height: 100vh;
+  height: 100svh;
   border-radius: 0;
   margin: 0;
   gap: 0;
@@ -452,7 +453,7 @@ section {
 
 .snap-section {
   padding: 0 !important;
-  height: 100vh;
+  height: 100svh;
   scroll-snap-align: start;
 }
 
@@ -759,13 +760,11 @@ footer {
 
 @keyframes shrinkHole {
   0% {
-    width: 300vmax;
-    height: 300vmax;
+    transform: translate(-50%, -50%) scale(80);
   }
 
   100% {
-    width: 90px;
-    height: 90px;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -791,12 +790,12 @@ footer {
   top: 82px;
   /* Center of the first thumbnail */
   left: 50px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(80);
   border-radius: 50%;
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.85);
-  width: 300vmax;
-  /* Start huge */
-  height: 300vmax;
+  width: 90px;
+  height: 90px;
+  will-change: transform;
 }
 
 .work-showcase.fully-visible .tutorial-hole {
@@ -864,19 +863,17 @@ footer {
 
   .work-showcase.fully-visible .tutorial-hole {
     top: 46px;
-    left: 46px;
+    left: 48px;
     animation: shrinkHoleMobile 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
 
   @keyframes shrinkHoleMobile {
     0% {
-      width: 300vmax;
-      height: 300vmax;
+      transform: translate(-50%, -50%) scale(80);
     }
 
     100% {
-      width: 75px;
-      height: 75px;
+      transform: translate(-50%, -50%) scale(0.8333); /* 75px / 90px = 0.8333 */
     }
   }
 
@@ -922,4 +919,45 @@ footer {
     width: 200px;
     height: 200px;
   }
+}
+
+
+@media (max-width: 768px) {
+
+  .work-showcase.full-screen .work-thumbnails,
+  .work-thumbnails {
+    position: relative;
+    z-index: 50;
+
+    display: flex;
+    flex-direction: row;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    gap: 12px;
+
+    padding: 12px 16px;
+
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    scrollbar-width: none;
+    align-items: flex-start;
+  }
+
+  .work-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-thumb {
+    min-width: 64px;
+    min-height: 64px;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+  }
+
 }
