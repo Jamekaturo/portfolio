@@ -1,0 +1,5 @@
+/* Reset App.css as we use index.css for global styles */
+body {
+  margin: 0;
+  padding: 0;
+}
