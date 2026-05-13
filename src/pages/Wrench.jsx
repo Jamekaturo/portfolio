@@ -54,10 +54,6 @@ export default function Wrench() {
               <div className="hero-stat-label">Builds Completed</div>
             </div>
             <div className="hero-stat">
-              <div className="hero-stat-num" data-count="24">0</div>
-              <div className="hero-stat-label">Awards Won</div>
-            </div>
-            <div className="hero-stat">
               <div className="hero-stat-num" data-count="100">0<span className="suffix">%</span></div>
               <div className="hero-stat-label">Craftsmanship</div>
             </div>
